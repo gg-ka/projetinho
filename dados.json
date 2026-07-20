@@ -1,0 +1,27 @@
+{
+
+    "filmes": [
+        {
+            "id": 1,
+            "titulo": "XXX",
+            "capa_url": "url de capa aqui",
+            "descricao": "blablabla"
+        },
+
+        {
+            "id": 2,
+            "titulo": "XXX",
+            "capa_url": "url de capa aqui",
+            "descricao": "blablabla"
+        }
+    ],
+
+    "avaliacoes": [
+        {
+            "id": 1,
+            "filme_id": 1,
+            "nota": 5.0,
+            "comentario": "jcsnefkewnf"
+        }
+    ]
+}
