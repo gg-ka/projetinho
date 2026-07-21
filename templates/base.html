@@ -1,1 +1,50 @@
 <!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    
+    <meta charset="UTF-8">
+
+    <title>projetinho dos filmesssssssssss</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for(static, filename=style.css) }}">
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav>
+
+
+            <a href=""{{ url_for(dashboard)}}>
+                Dashboard
+            </a>
+
+            <a href=""{{ url_for(catalogo)}}>
+                Catálogo
+            </a>
+
+            <a href=""{{ url_for(avaliacao)}}>
+                Nova Avaliação
+            </a>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+</body>
+
+</html>
