@@ -153,6 +153,6 @@ def avaliacao():
     )
 
 #Checa se o arquivo Python está sendo executado diretamente (não importado por outro)
+#Inicia o servidor local do Flask com o modo de depuração ativado (debug=True)
 if __name__ == "__main__":
-    #Inicia o servidor local do Flask com o modo de depuração ativado (debug=True)
     app.run(debug=True)
