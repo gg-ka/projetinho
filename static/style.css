@@ -40,6 +40,7 @@ nav{
     text-decoration: none;
 }
 
+/* cadastro dw filme */
 .botao-adicionar {
     padding: 14px 24px;
 
@@ -77,4 +78,47 @@ nav{
         0 12px 28px rgba(0, 141, 210, 0.35);
 
     filter: brightness(1.08);
+}
+
+/*catalogo de filmes em si*/
+
+.lista-filmes {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, 180px);
+
+    justify-content: center;
+
+    gap: 45px 32px;
+}
+
+.filme {
+    width: 180px;
+    text-align: center;
+    cursor: pointer;
+    transition:
+        transform 0.2s,
+        filter 0.2s;
+}
+
+.filme:hover {
+    transform: translateY(-7px);
+}
+/* faz subir ao arrastar cursor por cima/meio que efeito */
+
+.filme img {
+    display: block;
+    width: 180px;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.filme h2 {
+    margin: 14px 0 0;
+    font-size: 17px;
+    line-height: 1.25;
 }
