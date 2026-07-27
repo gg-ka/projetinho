@@ -1,13 +1,18 @@
-* {
+/* Style geral */
+*{
+    /* reseta o a pré configuração dos navegadores */
+    font-family: "Rubik", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body{
-    background-color: #131313;
     color: #e1e1e1;
+    background-color: #101010;
 }
+
+/* Mudanças no header(nav) */
 
 nav{
     width: 100%;
@@ -20,22 +25,88 @@ nav{
 }
 
 .base_title {
-    font-family: "Rubik", sans-serif;
+    font-size: 26px;
     color: #e1e1e1; 
-    padding-left: 24px;
+    padding-left: 16px;
 }
 
 .base_links {
     color: #e1e1e1;
     display: flex;
     justify-content: center;
-    gap: 20px; /* Espaçamento entre os links */
+    gap: 24px; /* Espaçamento entre os links */
+    padding-right: 16px;
 }
 
 .base_links a{
-    font-family: "Rubik", sans-serif;
-    font-size: 80%;
+    font-size: 20px;
     font-weight: lighter;
     color: #e1e1e1;
     text-decoration: none;
+}
+
+/* Style da pagina avaliação */
+
+.avaliacao{    
+    width: 100%;
+    max-width: 800px; 
+    margin: 3vw auto 0 auto; 
+    padding: 0 20px;
+}
+
+.titulo_ava h1{
+    font-size: 34px;
+    color: #e1e1e1; 
+    padding-bottom: 3px;
+}
+
+.titulo_ava p{
+    font-size: 14px;
+    font-weight: lighter;
+    color: #e1e1e1;
+    padding-bottom: 30px;
+}
+
+.avaliacao_campos{
+    border-radius: 25px;
+    border: 1px solid #262629;
+    padding: 20px;
+    background-color: #202020;
+}
+
+.categoria{
+    font-weight: 600;
+    font-size: 14px;
+    color: #e1e1e1;
+    padding-bottom: 12px;
+}
+
+.avaliacao_campos section{
+    margin-bottom: 30px;
+}
+
+.star{
+    background-color: transparent;
+    border: none;
+    color: #e1e1e1;
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.botoes_ava button{
+    font-size: 12px;
+    font-weight: 500;
+    color: #e1e1e1;
+    border: none;
+    border-radius: 25px;
+    width: 120px;
+    padding: 7px 0 7px 0;
+}
+
+.botao_salva{
+    background-color: #004880;
+}
+
+.botao_cancelar{
+    background-color: transparent;
 }
