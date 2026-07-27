@@ -2,31 +2,58 @@
 
 {% block content %}
 
-    <div class="avaliacao">
-        <h1>Nova avaliação</h1>
-        <div class="filme_ava">
-            <h3 class="categoria">Filmes</h3>
-            <select name="Filmes" id="filmes_ava">
-                <option value="duna">-</option>
-                <option value="duna">Duna</option>
-                <option value="starwars">Star Wars</option>
-                <option value="mulna">Mulna</option>
-            </select>
-        </div>
-        <div class="nota_ava">
-            <h3 class="categoria">Nota</h3>
-            <button class="star">&#9734</button>
-            <button class="star">&#9734</button>
-            <button class="star">&#9734</button>
-            <button class="star">&#9734</button>
-            <button class="star">&#9734</button>
-        </div>
-        <div class="comentario_ava">
-            <h3 class="categoria">Comentário</h3>
-            <textarea id="comentario" name="comentario" rows="4" cols="50" placeholder="Escreva seu comentário..."></textarea>
-        </div>
-        <button>Cancelar</button>
-        <button>Enviar</button>
-    </div>
+    <section class="avaliacao">
+
+        <section class="titulo_ava">
+
+            <h1>Nova avaliação</h1>
+    
+            <p>Compartilhe sua jornada cinematográfica com a comunidade.</p>
+
+        </section>
+
+        <section class="avaliacao_campos">
+
+            <section class="filme_ava">
+
+                <h3 class="categoria">SELECIONAR O FILME</h3>
+
+                <select name="filmes" id="filmes_ava">
+                    <option value="duna">-</option>
+                    <option value="duna">Duna</option>
+                    <option value="starwars">Star Wars</option>
+                    <option value="mulna">Mulna</option>
+                </select>
+
+            </section>
+    
+            <section class="nota_ava">
+
+                <h3 class="categoria">AVALIAÇÃO</h3>
+
+                <button class="star">&#9734</button>
+                <button class="star">&#9734</button>
+                <button class="star">&#9734</button>
+                <button class="star">&#9734</button>
+                <button class="star">&#9734</button>
+
+            </section>
+    
+            <section class="critica_ava">
+
+                <h3 class="categoria">SUA CRÍTICA</h3>
+                <textarea class="text_critica" rows="4" cols="45" placeholder="Escreva sua critica..."></textarea>
+            
+            </section>
+    
+            <div class="botoes_ava">
+
+                <button class="botao_cancelar">CANCELAR</button>
+                <button class="botao_salva">SALVAR</button>
+
+            </div>
+
+        </section>
+    </section>
     
 {% endblock %}
