@@ -1,3 +1,7 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -6,7 +10,7 @@
     
     <meta charset="UTF-8">
 
-    <title>projetinho dos filmesssssssssss</title>
+    <title>projetinho dos filmes</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
@@ -17,18 +21,23 @@
     <header>
 
         <nav>
+            <h2 class="base_title">UNICINE</h2>
             
-            <a href="{{ url_for('dashboard') }}">
-                Dashboard
-            </a>
+            <div class="base_links">
 
-            <a href="{{ url_for('catalogo') }}">
-                Catálogo
-            </a>
+                <a href="{{ url_for('dashboard') }}">
+                    Dashboard
+                </a>
+    
+                <a href="{{ url_for('catalogo') }}">
+                    Catálogo
+                </a>
+    
+                <a href="{{ url_for('avaliacao') }}">
+                    Nova Avaliação
+                </a>
 
-            <a href="{{ url_for('avaliacao') }}">
-                Nova Avaliação
-            </a>
+            </div>
 
         </nav>
 
