@@ -10,7 +10,7 @@
 
     <link
         rel="stylesheet"
-        href="{{ url_for(static, filename=style.css) }}">
+        href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 
@@ -20,15 +20,15 @@
 
         <nav>
             
-            <a href=""{{ url_for(dashboard)}}>
+            <a href="{{ url_for('dashboard')}}">
                 Dashboard
             </a>
 
-            <a href=""{{ url_for(catalogo)}}>
+            <a href="{{ url_for('catalogo')}}">
                 Catálogo
             </a>
 
-            <a href=""{{ url_for(avaliacao)}}>
+            <a href="{{ url_for('avaliacao')}}">
                 Nova Avaliação
             </a>
 

@@ -2,6 +2,91 @@
 
 {% block content %}
 
-    <h1>Dashboard</h1> # se quisermos padronizar os titulos de todas as paginas (mesmo tamanho e formatacao) podemos botar apos o h1 "class=blabla", tendo criado no css uma classe especifica p isso, por exemplo titulo-pagina
-    
+<h1>Dashboard</h1>
+
+<p>
+    <strong>Total de avaliações cadastradas:</strong>
+    {{ total_avaliacoes }}
+</p>
+
+<h2>Filmes Mais Bem Avaliados</h2>
+
+{% if ranking %}
+
+<table border="1">
+
+    <tr>
+        <th>Posição</th>
+        <th>Filme</th>
+        <th>Média</th>
+        <th>Avaliações</th>
+    </tr>
+
+    <!-- Percorre todos os filmes presentes no ranking -->
+    {% for filme in ranking %}
+
+    <tr>
+
+        <!-- loop.index mostra a posição do filme no ranking -->
+        <td>{{ loop.index }}</td>
+
+        <!-- Exibe o título do filme -->
+        <td>{{ filme.titulo }}</td>
+
+        <!-- Verifica se o filme possui avaliações -->
+        <td>
+
+            {% if filme.media is not none %}
+                {{ filme.media }}
+            {% else %}
+                Sem avaliações
+            {% endif %}
+
+        </td>
+
+        <!-- Mostra quantas avaliações o filme recebeu -->
+        <td>{{ filme.quantidade_avaliacoes }}</td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% else %}
+
+<p>Nenhum filme cadastrado.</p>
+
+{% endif %}
+
+<h2>Filmes adicionados recentemente</h2>
+
+<!-- Verifica se existe algum filme cadastrado -->
+{% if filmes_recentes %}
+
+<ul>
+
+<!-- Percorre a lista de filmes recentes e exibe as informações listadas -->
+{% for filme in filmes_recentes %}
+
+    <li>
+
+        <strong>{{ filme.titulo }}</strong>
+
+        <br>
+
+        {{ filme.descricao }}
+
+    </li>
+
+{% endfor %}
+
+</ul>
+
+{% else %}
+
+<p>Nenhum filme cadastrado.</p>
+
+{% endif %}
+
 {% endblock %}
