@@ -128,15 +128,17 @@ def avaliacao():
         #pega as informações do usuario
         filme_id = int(request.form["filme_id"])
         nota = float(request.form["nota"])
-        comentario= request.form["comentario"]
+        nome_avaliador = request.form["nome_avaliador"]
+        comentario = request.form["comentario"]
 
         #cria a nova avaliação com as insfor do usuario
         nova_avaliacao = {
             "id": len(dados["avaliacoes"]) + 1,
             "filme_id": filme_id,
             "nota": nota,
+            "nome_avaliador": nome_avaliador,
             "comentario": comentario
-}
+        }
 
         #Insere a nova avaliação na lista dados["avaliacoes"]
         dados["avaliacoes"].append(nova_avaliacao)

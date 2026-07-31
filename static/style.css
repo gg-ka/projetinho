@@ -93,6 +93,25 @@ nav{
     margin-right: 10px;
 }
 
+.texto_nome{
+    min-width: 220px;
+}
+
+.text_critica{
+    max-width: 700px;        /* Limits horizontal size */
+    min-height: 80px;
+    max-height: 150px;       /* Limits vertical size */
+    overflow: hidden;        /* Hides text that spills out */
+    box-sizing: border-box; 
+}
+
+.botoes_ava {
+    display: flex;             /* deixa flexível */
+    justify-content: flex-end; /* Empurra todo o conteúdo para a direita */
+    align-items: center;       /* Alinha os botões VERTICALMENTE ao centro */
+    gap: 12px;                  /* Cria um espaçamento uniforme entre os botões */
+}
+
 .botoes_ava button{
     font-size: 12px;
     font-weight: 500;
@@ -101,6 +120,23 @@ nav{
     border-radius: 25px;
     width: 120px;
     padding: 7px 0 7px 0;
+    cursor: pointer; /* Transforma o ponteiro do mouse em mãozinha */
+    transition: background-color 0.2s ease, opacity 0.2s ease; /* Deixa a transição da cor suave */
+}
+
+/* Efeito ao passar o mouse no botão SALVAR */
+.botao_salva:hover {
+    background-color: #0066b2; /* Um azul um pouco mais claro que o original (#004880) */
+}
+
+/* Efeito ao passar o mouse no botão CANCELAR */
+.botao_cancelar:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Um fundo meio transparente */
+    color: #ffffff; /* Deixa o texto mais claro */
+}
+
+.botoes_ava a {
+    text-decoration: none;
 }
 
 .botao_salva{

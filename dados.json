@@ -1,27 +1,32 @@
 {
-
     "filmes": [
         {
             "id": 1,
-            "titulo": "XXX",
+            "titulo": "XXX-1",
             "capa_url": "url de capa aqui",
             "descricao": "blablabla"
         },
-
         {
             "id": 2,
-            "titulo": "XXX",
+            "titulo": "XXX-2",
             "capa_url": "url de capa aqui",
             "descricao": "blablabla"
         }
     ],
-
     "avaliacoes": [
         {
             "id": 1,
             "filme_id": 1,
             "nota": 5.0,
+            "nome_avaliador": "Robson123",
             "comentario": "jcsnefkewnf"
+        },
+        {
+            "id": 2,
+            "filme_id": 1,
+            "nota": 1.0,
+            "nome_avaliador": "eumesma",
+            "comentario": "uma bosta"
         }
     ]
 }
