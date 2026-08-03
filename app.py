@@ -149,9 +149,12 @@ def avaliacao():
         return redirect(url_for("dashboard"))
 
     #Renderiza a página avaliação noramlmente (GET)
+    filme_selecionado = request.args.get("filme_id", type=int)
+
     return render_template(
         "avaliacao.html",
-        filmes=dados["filmes"]
+        filmes=dados["filmes"],
+        filme_selecionado=filme_selecionado
     )
 
 #Checa se o arquivo Python está sendo executado diretamente (não importado por outro)
