@@ -11,6 +11,7 @@ body{
     color: #e1e1e1;
     background-color: #101010;
 }
+
 /* Mudanças no header(nav) */
 
 nav{
@@ -514,5 +515,4 @@ impedir que encolha com flex shrink */
         width: 100%;
     }
 
-}
 }
