@@ -97,19 +97,20 @@ nav{
     min-width: 220px;
 }
 
-.text_critica{
-    max-width: 700px;        /* Limits horizontal size */
+.texto_critica{
+    min-width: 450px;
+    max-width: 710px; /* Limita horizontal */
     min-height: 80px;
-    max-height: 150px;       /* Limits vertical size */
-    overflow: hidden;        /* Hides text that spills out */
+    field-sizing: content; /* Aumenta da caixa verticalmente de acordo com o conteudo*/
+    overflow: hidden; /* Esconde texto que vazar */
     box-sizing: border-box; 
 }
 
 .botoes_ava {
-    display: flex;             /* deixa flexível */
+    display: flex;  /* deixa flexível */
     justify-content: flex-end; /* Empurra todo o conteúdo para a direita */
-    align-items: center;       /* Alinha os botões VERTICALMENTE ao centro */
-    gap: 12px;                  /* Cria um espaçamento uniforme entre os botões */
+    align-items: center;  /* Alinha os botões VERTICALMENTE ao centro */
+    gap: 12px; /* Cria um espaçamento uniforme entre os botões */
 }
 
 .botoes_ava button{
