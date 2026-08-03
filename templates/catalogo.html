@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <section class="catalogo">
+
+        <section class="topo_catalogo">
+
+            <div>
+                <h1>Catálogo</h1>
+                <p>Explore os filmes cadastrados.</p>
+            </div>
+
+            <button type="button" id="abrir_cadastro" class="botao_cadastrar_filme">
+                + Cadastrar filme
+            </button>
+
+        </section>
+
+        <h2 class="titulo_filmes">Filmes cadastrados</h2>
+
+        <div class="linha_catalogo"></div>
+
+        <section class="lista_filmes">
+
+            {% for filme in filmes %}
+
+                <div
+                    class="card_filme"
+                    data-titulo="{{ filme.titulo }}"
+                    data-capa="{{ filme.capa_url }}"
+                    data-descricao="{{ filme.descricao }}"
+                    data-media="{{ filme.media }}"
+                    data-avaliacoes="{{ filme.quantidade_avaliacoes }}"
+                >
+
+                    <img src="{{ filme.capa_url }}" alt="Capa do filme {{ filme.titulo }}">
+
+                    <h3>{{ filme.titulo }}</h3>
+
+                </div>
+
+            {% endfor %}
+
+        </section>
+
+    </section>
+
+    <section id="modal_cadastro" class="modal_catalogo">
+
+        <div class="caixa_modal cadastro_modal">
+
+            <button type="button" id="fechar_cadastro" class="fechar_modal">×</button>
+
+            <h2>Cadastrar novo filme</h2>
+
+            <form method="POST" action="{{ url_for('catalogo') }}">
+
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" required>
+
+                <label for="capa">URL da capa:</label>
+                <input type="url" id="capa" name="capa" required>
+
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" name="descricao" required></textarea>
+
+                <button type="submit" class="botao_enviar_filme">
+                    Cadastrar
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <section id="modal_filme" class="modal_catalogo">
+
+        <div class="caixa_modal detalhes_modal">
+
+            <button type="button" id="fechar_filme" class="fechar_modal">×</button>
+
+            <img id="modal_capa" src="" alt="Capa do filme">
+
+            <div class="texto_modal_filme">
+
+                <h2 id="modal_titulo"></h2>
+
+                <p id="modal_descricao"></p>
+
+                <div class="media_modal">
+                    <span class="estrela_modal">★</span>
+                    <span id="modal_media">-</span>
+                    <span id="modal_avaliacoes">(0 avaliações)</span>
+                </div>
+
+                <button type="button" class="botao_play">
+                    <span>▶</span>
+                    PLAY
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script>
+    /* pega todos os cards de filmes */
+        const cardsFilmes = document.querySelectorAll(".card_filme");
+
+    /* a seguir pega os elementos do modal de detalhes dos filmes */
+        const modalFilme = document.getElementById("modal_filme");
+        const fecharFilme = document.getElementById("fechar_filme");
+
+        const modalTitulo = document.getElementById("modal_titulo");
+        const modalCapa = document.getElementById("modal_capa");
+        const modalDescricao = document.getElementById("modal_descricao");
+        const modalMedia = document.getElementById("modal_media");
+        const modalAvaliacoes = document.getElementById("modal_avaliacoes");
+
+        /* adiciona evento de clique a cada card de filme */
+        cardsFilmes.forEach(function(card) {
+            card.addEventListener("click", function() {
+                const titulo = card.dataset.titulo;
+                const capa = card.dataset.capa;
+                const descricao = card.dataset.descricao;
+                const media = card.dataset.media;
+                const avaliacoes = card.dataset.avaliacoes;
+                /* puxa os dados no data do html */
+
+                /* e coloca eles no modal */
+                modalTitulo.textContent = titulo;
+                modalCapa.src = capa;
+                modalDescricao.textContent = descricao;
+
+                /* se o filme nao tiver avaliaoces, vai mostrar tracinho e 0 avaliacoes */
+                if (media === "None" || media === "" || avaliacoes === "0") {
+                    modalMedia.textContent = "-";
+                    modalAvaliacoes.textContent = "(0 avaliações)";
+                } else {
+                    modalMedia.textContent = media.replace(".", ",");
+
+                    if (avaliacoes === "1") {
+                        modalAvaliacoes.textContent = "(1 avaliação)";
+                    } else {
+                        modalAvaliacoes.textContent = "(" + avaliacoes + " avaliações)";
+                    }
+                }
+
+                modalFilme.classList.add("aberto");
+            }); /* abre o modal, o css mostra qd tem class aberto */
+        });
+
+        fecharFilme.addEventListener("click", function() {
+            modalFilme.classList.remove("aberto");
+        });
+
+        modalFilme.addEventListener("click", function(evento) {
+            if (evento.target === modalFilme) {
+                modalFilme.classList.remove("aberto");
+            }
+        });
+
+        /* ambos os acima fecham o modal ou ao clicar no x ou ao clicar no fundo escuro fora da caixa */
+
+        /* pega os elementos do cadastro */
+        const modalCadastro = document.getElementById("modal_cadastro");
+        const abrirCadastro = document.getElementById("abrir_cadastro");
+        const fecharCadastro = document.getElementById("fechar_cadastro");
+
+        /* abre o modal de cadastro ao clicar no botao de cadastrar filme */
+        abrirCadastro.addEventListener("click", function() {
+            modalCadastro.classList.add("aberto");
+        });
+
+        /* fecha de novokk clicando no x e fora da caixa/modal */
+        fecharCadastro.addEventListener("click", function() {
+            modalCadastro.classList.remove("aberto");
+        });
+
+        modalCadastro.addEventListener("click", function(evento) {
+            if (evento.target === modalCadastro) {
+                modalCadastro.classList.remove("aberto");
+            }
+        });
+    </script>
+
+{% endblock %}
