@@ -2,15 +2,21 @@
     "filmes": [
         {
             "id": 1,
-            "titulo": "XXX-1",
-            "capa_url": "url de capa aqui",
-            "descricao": "blablabla"
+            "titulo": "Garota Exemplar",
+            "capa_url": "https://tse4.mm.bing.net/th/id/OIP.Q_MapJXYmNuXeQyOwZEMMgHaLH?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+            "descricao": "Amy e Nick Dunne são um casal aparentemente feliz e apaixonado. Contudo, na data em que celebrariam o quinto aniversário de casamento, a esposa desaparece misteriosamente. Durante as buscas, o marido passa a ser encarado como um possível suspeito."
         },
         {
             "id": 2,
-            "titulo": "XXX-2",
-            "capa_url": "url de capa aqui",
-            "descricao": "blablabla"
+            "titulo": "Chainsaw Man - O Filme: Reze Arc",
+            "capa_url": "https://mtzkdsbjqeygpzxmjmfh.supabase.co/storage/v1/object/public/anime-images/anime-edits/57555/poster/1757234551416-mxgDa8Tdkaa3YzuQY9wu4VTtky1.webp",
+            "descricao": "Entre demônios, caçadores e inimigos secretos, Denji encontra um novo interesse romântico. Nesse filme de Chainsaw Man, Denji enfrenta um novo desafio quando conhece Reze que trabalha em um café, e impacta completamente o seu mundo."
+        },
+        {
+            "id": 3,
+            "titulo": "The Dirt",
+            "capa_url": "https://images.justwatch.com/poster/120498817/s718/the-dirt.jpg",
+            "descricao": "The Dirt – Confissões do Mötley Crüe retrata a formação, ascensão e excessos de uma das bandas mais icônicas do glam metal dos anos 80, mostrando sem filtros suas conquistas, tragédias e polêmicas."
         }
     ],
     "avaliacoes": [
