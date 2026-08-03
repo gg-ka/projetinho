@@ -147,3 +147,368 @@ nav{
 .botao_cancelar{
     background-color: transparent;
 }
+
+/* Style da pagina catalogo */
+
+.catalogo {
+    width: 100%;
+    max-width: 1050px;
+    margin: 3vw auto 0 auto;
+    padding: 0 20px 70px 20px;
+}
+
+.topo_catalogo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 45px;
+} /* organiza o botao de cadastro e o titulo na mesma linha pq tava me agoniando o botao torto */
+
+.topo_catalogo h1 {
+    font-size: 34px;
+    color: #e1e1e1;
+    padding-bottom: 3px;
+} /* estilizar catalogo */
+
+.topo_catalogo p {
+    font-size: 14px;
+    font-weight: lighter;
+    color: #e1e1e1;
+} /* subtitulo */ 
+
+.botao_cadastrar_filme {
+    border: none;
+    border-radius: 25px;
+    width: 165px;
+    padding: 10px 0 10px 0;
+    background-color: #004880;
+    color: #e1e1e1;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer; /* maozinha */
+    transition: background-color 0.2s ease, transform 0.2s ease;
+} /* deixei arredondado e botei transition p deixar o hover (abaixo) suave */
+
+.botao_cadastrar_filme:hover {
+    background-color: #0066b2;
+    transform: translateY(-2px);
+} /* efeito ao passsar o mouse sobre o botao de cadastro, sobe um pouco por causa do trasnform */
+
+.titulo_filmes {
+    font-size: 24px;
+    color: #e1e1e1;
+    margin-bottom: 28px;
+} /* "filmes cadastrados" */
+
+.linha_catalogo {
+    width: 100%;
+    height: 1px;
+    background-color: #303033;
+    margin-bottom: 40px;
+} /* divisoria pra organizacao entre topo e filmes */ 
+
+.lista_filmes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 180px);
+    justify-content: center;
+    gap: 42px 32px;
+} /* grade dos filmes, definindo quantos cabem de acordo com o limite 
+e centralizado com espaço vertical e horizontal */
+
+.card_filme {
+    width: 180px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+} /* card individual dos filmes na grade, transicao pro hover tbm */
+
+.card_filme h3 {
+    font-size: 17px;
+    line-height: 1.25;
+    color: #e1e1e1;
+    margin-top: 14px;
+    transition: 0.2s;
+} /* definir como o nome do filme aparece, transicao pro hover mais abaixo */
+
+.card_filme:hover {
+    transform: translateY(-7px);
+} /* sobe o card ao passar o cursor em cimw */
+
+.card_filme:hover img {
+    filter: brightness(0.72);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.6);
+} /* escurece a imagem da capa e muda a sombra um pouquinho auemntando */
+
+.card_filme:hover h3 {
+    color: #0066b2;
+} /* muda a cor do nome do filme ao passar o mouse em cima do filme */
+
+.card_filme img {
+    width: 180px;
+    height: 270px;
+    display: block;
+    object-fit: cover; /* corte sem deformar a imagem */
+    border-radius: 14px;
+    background-color: #202020;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    transition: 0.2s;
+} /*padronizacao das capas, com borda arredondada (pq eu acho mais bonitokk), sombra, transicao e limites de tamanho */
+
+/* Modais do catalogo (cadastro e filmes individuais) */
+
+.modal_catalogo {
+    display: none; /* escondido */ 
+    position: fixed; 
+    inset: 0; /*position e inset p cobrir a tela toda */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center; /* centarlizar modal */
+    z-index: 100; /* coloca o modal por cima */ 
+} /* fundo que fica na pag do app ao abrir um modal de filme x ou y */
+
+.modal_catalogo.aberto {
+    display: flex;
+} /* mostra o modal, quando js vir a class aberto, o display vira flex */
+
+.caixa_modal {
+    position: relative;
+    background-color: #202020;
+    border: 1px solid #262629;
+    border-radius: 25px;
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.45);
+} /* interior do modal, ajustando position p poder colocar botao de fechar dentro dela, arredondando e definindo sombra */ 
+
+.fechar_modal {
+    position: absolute; /* invariavel, absoluto no canto superior */ 
+    top: 12px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.07);
+    color: #e1e1e1;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.fechar_modal:hover {
+    background-color: rgba(255, 255, 255, 0.14);
+} /* efeito quando passa o mouse */ 
+
+.cadastro_modal {
+    width: min(520px, calc(100vw - 40px));
+    padding: 32px 32px 33px 32px; /* espaco ibterno */
+} /* modal de cadastrar filme p definir tamanho maximo mas com adaptacao p telas pequenas */
+
+.cadastro_modal h2 {
+    font-size: 26px;
+    color: #e1e1e1;
+    margin-bottom: 28px; /* espaco embaixo */ 
+} /* titulo do modal */ 
+
+.cadastro_modal form {
+    display: flex;
+    flex-direction: column; /* um embaixo do outro */
+    gap: 14px;
+} /* organizacao dos campos de preencher no modal */
+
+.cadastro_modal label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #e1e1e1;
+} /* padronifica os textos dos campos */
+
+.cadastro_modal input,
+.cadastro_modal textarea {
+    width: 100%;
+    border: 1px solid #393939;
+    border-radius: 14px;
+    background-color: #101010;
+    color: #e1e1e1;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-family: "Rubik", sans-serif;
+    outline: none;
+} /* define os campos, botando uma estetica direitinha com borda escura e sem contorno do nav */
+
+.cadastro_modal input:focus,
+.cadastro_modal textarea:focus {
+    border-color: #0066b2;
+} /* borda fica azul ao clicar no campo */
+
+.cadastro_modal textarea {
+    min-height: 140px;
+    resize: vertical;
+} /* aumenta a altura da descricao e redimensiona so na vertidcal caso passe */
+
+.botao_enviar_filme {
+    border: none;
+    border-radius: 25px;
+    background-color: #004880;
+    color: #e1e1e1;
+    padding: 10px 20px;
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+} /* botao de cadastrar dentor do modal, mesmo padrao dos demais */
+
+.botao_enviar_filme:hover {
+    background-color: #0066b2;
+} /* efeito de clarear ao passar o cursor */
+
+.detalhes_modal {
+    width: min(700px, calc(100vw - 40px));
+    min-height: 365px;
+    padding: 32px;
+    display: flex; /* capa e texto um do lado do outro */
+    gap: 28px;
+} /* modal que mostra as infos do filme */
+
+.detalhes_modal > img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    flex-shrink: 0;
+    background-color: #101010;
+} /* estiliza a imagem direta dentro do modal especifico, definicao de tamanho, corte sem deformacao 
+impedir que encolha com flex shrink */
+
+.texto_modal_filme {
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* p texto grande nao estourar o layout */
+}
+
+.texto_modal_filme h2 {
+    font-size: 28px;
+    color: #e1e1e1;
+    margin: 18px 48px 18px 0;
+} /* titulo do filme */
+
+.texto_modal_filme p {
+    max-height: 105px;
+    padding-right: 12px;
+    margin-bottom: 18px;
+    color: #e1e1e1;
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-y: auto; /* aparecer rolagem caso o texto seja grande demais */
+    scrollbar-width: thin; /* deixa a barra mais fininha no Firefox */
+    scrollbar-color: #393939 #202020; /* cor da barrinha e do fundo dela no navegador */
+} /* define a descricao */
+
+.texto_modal_filme p::-webkit-scrollbar {
+    width: 6px; /* largura da barrinha em navegadores como Chrome */
+}
+
+.texto_modal_filme p::-webkit-scrollbar-track {
+    background-color: #202020; /* fundo do scroll igual ao modal */
+    border-radius: 25px;
+}
+
+.texto_modal_filme p::-webkit-scrollbar-thumb {
+    background-color: #393939; /* parte que mexe do scroll */
+    border-radius: 25px;
+}
+
+.texto_modal_filme p::-webkit-scrollbar-thumb:hover {
+    background-color: #0066b2; /* fica azul quando passa o mouse */
+}
+
+.media_modal {
+    display: flex; /* tudo na mesma linha */
+    align-items: center;
+    gap: 8px;
+    margin-top: auto; /* p puxar essa parte pra baixo no modal, la embaixo */
+    margin-bottom: 18px;
+    font-size: 16px;
+    font-weight: 600px;
+    color: #e1e1e1;
+} /* organiza estrela nota e quant de avaliacoes */
+
+.estrela_modal {
+    color: #ffd700;
+    font-size: 28px;
+}
+
+#modal_media {
+    font-size: 26px;
+} /* aumenta so o numero da media, # por ser id e nao class */ 
+
+.botao_play {
+    width: 155px;
+    border: none;
+    border-radius: 25px;
+    padding: 13px 20px;
+    background-color: #ffffff;
+    color: #050505;
+    font-size: 16px;
+    font-weight: 600px;
+    letter-spacing: 4px;
+    cursor: pointer;
+} /* botao play, botei isso so pq tava sentindo o modal muito vaziokk */
+
+.botao_play span {
+    letter-spacing: 0;
+    margin-right: 10px;
+} /* ajeita o espacamento do icone de play e separa do texto */
+
+.botao_play:hover {
+    background-color: #eeeeee;
+    transform: translateY(-2px);
+} /* clareia um pouco e sobe o botao ao passar o cursor */
+
+@media (max-width: 700px) { 
+    /* tudo aqui so eh valido pra telas pequenas */
+
+    .topo_catalogo {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .botao_cadastrar_filme {
+        width: 100%;
+    }
+
+    .lista_filmes {
+        grid-template-columns: repeat(auto-fill, 150px);
+        gap: 35px 20px;
+    }
+
+    .card_filme,
+    .card_filme img {
+        width: 150px;
+    }
+
+    .card_filme img {
+        height: 225px;
+    }
+
+    .detalhes_modal {
+        flex-direction: column;
+        align-items: center;
+        padding: 26px 20px;
+    }
+
+    .detalhes_modal > img {
+        width: 160px;
+        height: 240px;
+    }
+
+    .texto_modal_filme h2 {
+        margin-top: 0;
+    }
+
+    .botao_play {
+        width: 100%;
+    }
+
+}
