@@ -442,7 +442,10 @@ impedir que encolha com flex shrink */
     font-size: 26px;
 } /* aumenta so o numero da media, # por ser id e nao class */ 
 
-.botao_play {
+.botao_avaliar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 155px;
     border: none;
     border-radius: 25px;
@@ -450,17 +453,18 @@ impedir que encolha com flex shrink */
     background-color: #ffffff;
     color: #050505;
     font-size: 16px;
-    font-weight: 600px;
+    font-weight: 600;
     letter-spacing: 4px;
     cursor: pointer;
-} /* botao play, botei isso so pq tava sentindo o modal muito vaziokk */
+    text-decoration: none;
+} /* botao avaliar, leva para a pagina de avaliacao */
 
-.botao_play span {
+.botao_avaliar span {
     letter-spacing: 0;
     margin-right: 10px;
-} /* ajeita o espacamento do icone de play e separa do texto */
+} /* ajeita o espacamento do icone de avaliacao e separa do texto */
 
-.botao_play:hover {
+.botao_avaliar:hover {
     background-color: #eeeeee;
     transform: translateY(-2px);
 } /* clareia um pouco e sobe o botao ao passar o cursor */
@@ -506,8 +510,9 @@ impedir que encolha com flex shrink */
         margin-top: 0;
     }
 
-    .botao_play {
+    .botao_avaliar {
         width: 100%;
     }
 
+}
 }
