@@ -27,6 +27,7 @@
 
                 <div
                     class="card_filme"
+                    data-id="{{ filme.id }}"
                     data-titulo="{{ filme.titulo }}"
                     data-capa="{{ filme.capa_url }}"
                     data-descricao="{{ filme.descricao }}"
@@ -95,10 +96,10 @@
                     <span id="modal_avaliacoes">(0 avaliações)</span>
                 </div>
 
-                <button type="button" class="botao_play">
-                    <span>▶</span>
-                    PLAY
-                </button>
+                <a href="{{ url_for('avaliacao') }}" id="botao_avaliar" class="botao_avaliar">
+                    <span>&#9733;</span>
+                    AVALIAR
+                </a>
 
             </div>
 
@@ -119,6 +120,7 @@
         const modalDescricao = document.getElementById("modal_descricao");
         const modalMedia = document.getElementById("modal_media");
         const modalAvaliacoes = document.getElementById("modal_avaliacoes");
+        const botaoAvaliar = document.getElementById("botao_avaliar");
 
         /* adiciona evento de clique a cada card de filme */
         cardsFilmes.forEach(function(card) {
@@ -128,12 +130,14 @@
                 const descricao = card.dataset.descricao;
                 const media = card.dataset.media;
                 const avaliacoes = card.dataset.avaliacoes;
+                const id = card.dataset.id;
                 /* puxa os dados no data do html */
 
                 /* e coloca eles no modal */
                 modalTitulo.textContent = titulo;
                 modalCapa.src = capa;
                 modalDescricao.textContent = descricao;
+                botaoAvaliar.href = "{{ url_for('avaliacao') }}?filme_id=" + id;
 
                 /* se o filme nao tiver avaliaoces, vai mostrar tracinho e 0 avaliacoes */
                 if (media === "None" || media === "" || avaliacoes === "0") {
