@@ -210,11 +210,12 @@ nav{
 
 .lista_filmes {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 180px);
+    grid-template-columns: repeat(auto-fit, 180px);
     justify-content: center;
+    justify-items: center;
     gap: 42px 32px;
 } /* grade dos filmes, definindo quantos cabem de acordo com o limite 
-e centralizado com espaço vertical e horizontal */
+e centralizado com espaço vertical e horizontal (ajuste: centralizado independente da quantidade de filmes presentes agora)  */
 
 .card_filme {
     width: 180px;
