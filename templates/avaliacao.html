@@ -12,64 +12,101 @@
         </section>
 
         <!-- Engloba os campos -->
-        <form action="{{ url_for('avaliacao') }}" method="POST" class="avaliacao_campos">
 
-            <section class="filme_ava">
+        <div class="avaliacao_modal">
 
-                <h3 class="categoria">SELECIONAR O FILME</h3>
-
-                <!-- 1) o "name" tem que ter o mesmo nome que no json (filme_id)-->
-                <!-- 2) o python já está enviando as informações dos filmes ao carregar a pagina -->
-                <select name="filme_id" id="filmes_ava" required>
-                    <option value="" disabled selected>Selecione um filme.</option>
-                    {% for filme in filmes %}
-                        <!-- Exibe o título do filme cadastrado no menu suspenso para o usuário. -->
-                        <option value="{{ filme.id }}">{{ filme.titulo }}</option>
-                    {% endfor %}
-                </select>
-
-            </section>
+            <form action="{{ url_for('avaliacao') }}" method="POST" class="avaliacao_campos">
     
-            <section class="nota_ava">
-
-                <h3 class="categoria">AVALIAÇÃO</h3>
-
-                <select name="nota" id="nota_ava" required>
-                    <option value="" disabled selected>Selecione a nota...</option>
-                    <option value="0">0 </option>
-                    <option value="1">1 ★</option>
-                    <option value="2">2 ★★</option>
-                    <option value="3">3 ★★★</option>
-                    <option value="4">4 ★★★★</option>
-                    <option value="5">5 ★★★★★</option>
-                </select>
-
-            </section>
-
-            <section class="nome_avaliador">
-
-                <h3 class="categoria">SEU NOME</h3>
-                <input type="text" name="nome_avaliador" class="texto_nome" placeholder="Insira seu nome." required>
-           
-            </section>
+                <section class="filme_ava">
     
-            <section class="critica_ava">
-
-                <h3 class="categoria">SUA CRÍTICA</h3>
-                <textarea name="comentario" class="texto_critica" rows="4" cols="45" placeholder="Escreva sua critica." required></textarea>
-            
-            </section>
+                    <h3 class="categoria">SELECIONAR O FILME</h3>
     
-            <div class="botoes_ava">
+                    <!-- 1) o "name" tem que ter o mesmo nome que no json (filme_id)-->
+                    <!-- 2) o python já está enviando as informações dos filmes ao carregar a pagina -->
+                    <select name="filme_id" class="filme_select" required>
+                        <option value="" disabled selected>Selecione um filme.</option>
+                        {% for filme in filmes %}
+                            <!-- Exibe o título do filme cadastrado no menu suspenso para o usuário. -->
+                            <option value="{{ filme.id }}">{{ filme.titulo }}</option>
+                        {% endfor %}
+                    </select>
+    
+                </section>
+        
+                <section class="nota_ava">
+                    <h3 class="categoria">AVALIAÇÃO</h3>
 
-                <a href="{{ url_for('dashboard') }}">
-                    <button type="button" class="botao_cancelar">CANCELAR</button>
-                </a>
-                <button type="submit" class="botao_salva">SALVAR</button>
+                    <div class="star-rating">
+                        <!-- 5 Estrelas -->
+                        <input type="radio" id="star5" name="nota" value="5" required />
+                        <label class="full" for="star5" title="5 estrelas"></label>
 
-            </div>
+                        <!-- 4.5 Estrelas -->
+                        <input type="radio" id="star4.5" name="nota" value="4.5" />
+                        <label class="half" for="star4.5" title="4.5 estrelas"></label>
 
-        </form>
+                        <!-- 4 Estrelas -->
+                        <input type="radio" id="star4" name="nota" value="4" />
+                        <label class="full" for="star4" title="4 estrelas"></label>
+
+                        <!-- 3.5 Estrelas -->
+                        <input type="radio" id="star3.5" name="nota" value="3.5" />
+                        <label class="half" for="star3.5" title="3.5 estrelas"></label>
+
+                        <!-- 3 Estrelas -->
+                        <input type="radio" id="star3" name="nota" value="3" />
+                        <label class="full" for="star3" title="3 estrelas"></label>
+
+                        <!-- 2.5 Estrelas -->
+                        <input type="radio" id="star2.5" name="nota" value="2.5" />
+                        <label class="half" for="star2.5" title="2.5 estrelas"></label>
+
+                        <!-- 2 Estrelas -->
+                        <input type="radio" id="star2" name="nota" value="2" />
+                        <label class="full" for="star2" title="2 estrelas"></label>
+
+                        <!-- 1.5 Estrelas -->
+                        <input type="radio" id="star1.5" name="nota" value="1.5" />
+                        <label class="half" for="star1.5" title="1.5 estrela"></label>
+
+                        <!-- 1 Estrela -->
+                        <input type="radio" id="star1" name="nota" value="1" />
+                        <label class="full" for="star1" title="1 estrela"></label>
+
+                        <!-- 0.5 Estrelas -->
+                        <input type="radio" id="star0.5" name="nota" value="0.5" />
+                        <label class="half" for="star0.5" title="0.5 estrela"></label>
+                        
+                    </div>
+                </section>
+    
+                <section class="nome_avaliador">
+    
+                    <h3 class="categoria">SEU NOME</h3>
+                    <input type="text" name="nome_avaliador" class="texto_nome" placeholder="Insira seu nome." required>
+               
+                </section>
+        
+                <section class="critica_ava">
+    
+                    <h3 class="categoria">SUA CRÍTICA</h3>
+                    <textarea name="comentario" class="texto_critica" rows="4" cols="45" placeholder="Escreva sua critica." required></textarea>
+                
+                </section>
+        
+                <div class="botoes_ava">
+    
+                    <a href="{{ url_for('dashboard') }}">
+                        <button type="button" class="botao_cancelar">CANCELAR</button>
+                    </a>
+                    <button type="submit" class="botao_salva">SALVAR</button>
+    
+                </div>
+    
+            </form>
+
+        </div>
+
     </section>
     
 {% endblock %}

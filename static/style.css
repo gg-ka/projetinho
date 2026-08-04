@@ -45,7 +45,7 @@ nav{
     text-decoration: none;
 }
 
-/* Style da pagina avaliação */
+/* ---------------------------- Style da pagina avaliação ---------------------------- */
 
 .avaliacao{    
     width: 100%;
@@ -85,25 +85,98 @@ nav{
     margin-bottom: 30px;
 }
 
-.star{
-    background-color: transparent;
-    border: none;
-    color: #e1e1e1;
-    font-size: 30px;
-    margin-right: 10px;
+.filme_select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    width: 100%;
+    
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="%23e1e1e1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>');
+    background-size: 3%;
+    background-repeat: no-repeat;
+    background-position: right 15px center;
 }
 
+.star-rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+
+.star-rating label {
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 58px;
+    color: #444444; 
+    cursor: pointer;
+    width: 25px; 
+    height: 58px;
+    position: relative;
+    overflow: hidden; 
+}
+
+.star-rating label::before {
+    content: '\2605';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 53px;
+    height: 58px;
+    line-height: 58px;
+}
+
+.star-rating label.half::before {
+    left: 0;
+}
+
+.star-rating label.full::before {
+    left: -25px; 
+}
+
+
+
+/* Efeito ao passar o mouse ou ao selecionar: acende a estrela e as anteriores */
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input[type="radio"]:checked ~ label {
+    color: #ffca28; /* Cor amarela/dourada */
+}
+
+.nome_avaliador input,
+.avaliacao_modal textarea,
+.filme_ava select {
+    border: 1px solid #393939;
+    border-radius: 14px;
+    background-color: #101010;
+    color: #e1e1e1;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-family: "Rubik", sans-serif;
+    outline: none;
+} /* define os campos, botando uma estetica direitinha com borda escura e sem contorno do nav */
+
+.avaliacao_modal input:focus,
+.avaliacao_modal textarea:focus,
+.avaliacao_modal select:focus {
+    border-color: #0066b2;
+} /* borda fica azul ao clicar no campo */
+
 .texto_nome{
-    min-width: 220px;
+    width: 100%;;
 }
 
 .texto_critica{
-    min-width: 450px;
-    max-width: 710px; /* Limita horizontal */
-    min-height: 80px;
+    width: 100%;
+    resize: none;
+    min-height: 100px;
     field-sizing: content; /* Aumenta da caixa verticalmente de acordo com o conteudo*/
-    overflow: hidden; /* Esconde texto que vazar */
-    box-sizing: border-box; 
+    overflow: hidden; /* Esconde texto que vazar */ 
 }
 
 .botoes_ava {
@@ -148,7 +221,7 @@ nav{
     background-color: transparent;
 }
 
-/* Style da pagina catalogo */
+/* ---------------------------- Style da pagina catalogo ---------------------------- */
 
 .catalogo {
     width: 100%;
