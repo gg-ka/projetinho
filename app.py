@@ -25,7 +25,7 @@ def salvar_dados(dados):
             indent=4 #formata o json com recuo de 4 espaços
         )
 
-def calcular_estatisticas(dados): #função que calcula as méduas das avaliações
+def calcular_estatisticas(dados): #função que calcula as médias das avaliações
     for filme in dados["filmes"]: #filmes está entre aspas pois ele quer
 
         soma_notas = 0
@@ -74,11 +74,15 @@ def dashboard():
     #ao inverter a lista do json a lista de filmes fica sendo exibida em ordem do mais recente para o mais antigo
     filmes_recentes = list(reversed(filmes))
 
+    # KPI extra do dashboard
+    total_avaliacoes = len(dados["avaliacoes"])
+
     #retorna a pagina do dashboard e atualiza o ranking e deixa na ordem dos filmes mais recentes
     return render_template(
-        "dashboard.html", 
+        "dashboard.html",
         ranking=ranking,
-        filmes_recentes=filmes_recentes
+        filmes_recentes=filmes_recentes,
+        total_avaliacoes=total_avaliacoes
     )
 
 @app.route("/catalogo", methods=["GET", "POST"]) #GET e POST significa q o usuario pode visualizar a pagina (GET) e pode enviar um formulario (POST)
