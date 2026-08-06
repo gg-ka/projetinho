@@ -17,6 +17,18 @@
             "titulo": "The Dirt",
             "capa_url": "https://images.justwatch.com/poster/120498817/s718/the-dirt.jpg",
             "descricao": "The Dirt – Confissões do Mötley Crüe retrata a formação, ascensão e excessos de uma das bandas mais icônicas do glam metal dos anos 80, mostrando sem filtros suas conquistas, tragédias e polêmicas."
+        },
+        {
+            "id": 4,
+            "titulo": "The Room",
+            "capa_url": "https://wuy756.github.io/reading-without-pages/theroom/images/the-room.jpg",
+            "descricao": "Johnny (Tommy Wiseau) é um banqueiro bem-sucedido que vive em São Francisco com sua noiva Lisa (Juliette Danielle). Entediada com a vida que leva, Lisa decide seduzir o melhor amigo de seu companheiro, Mark (Greg Sestero). Em consequência, a vida de todos mudará."
+        },
+        {
+            "id": 5,
+            "titulo": "Círculo de Fogo",
+            "capa_url": "https://br.web.img2.acsta.net/medias/nmedia/18/90/95/84/20505241.jpg",
+            "descricao": "Quando várias criaturas monstruosas, conhecidas como Kaiju, começam a emergir do mar, tem início uma batalha entre estes seres e os humanos. Para combatê-los, a humanidade desenvolve uma série de robôs gigantescos, os Jaegers, cada um controlado por duas pessoas através de uma conexão neural. Entretanto, mesmo os Jaegers se mostram insuficientes para derrotar os Kaiju. Diante deste cenário, a última esperança é um velho robô, obsoleto, que passa a ser comandado por um antigo piloto (Charlie Hunnam) e uma treinadora (Rinko Kikuchi)."
         }
     ],
     "avaliacoes": [
@@ -47,6 +59,34 @@
             "nota": 2.5,
             "nome_avaliador": "dfasdfa",
             "comentario": "a fgasfgdsfasdfv4wb t f gt yhrtyhyty ytyrer g"
+        },
+        {
+            "id": 5,
+            "filme_id": 2,
+            "nota": 4.5,
+            "nome_avaliador": "aaaaa",
+            "comentario": "aaaaa"
+        },
+        {
+            "id": 6,
+            "filme_id": 1,
+            "nota": 5.0,
+            "nome_avaliador": "ee",
+            "comentario": "22"
+        },
+        {
+            "id": 7,
+            "filme_id": 4,
+            "nota": 5.0,
+            "nome_avaliador": "O Maior Crítico Cinematográfico de Todos os Tempos",
+            "comentario": "Uma obra prima sem precedentes."
+        },
+        {
+            "id": 8,
+            "filme_id": 5,
+            "nota": 4.5,
+            "nome_avaliador": "Fã de Robô Gigante",
+            "comentario": "Eu amo robô gigante."
         }
     ]
 }

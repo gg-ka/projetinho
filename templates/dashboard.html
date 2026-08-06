@@ -9,11 +9,11 @@
     {{ total_avaliacoes }}
 </p>
 
-<h2>Filmes Mais Bem Avaliados</h2>
+<h2>Top Avaliados</h2>
 
 {% if ranking %}
 
-<table border="1">
+<table>
 
     <tr>
         <th>Posição</th>
@@ -59,23 +59,29 @@
 
 {% endif %}
 
-<h2>Filmes adicionados recentemente</h2>
+<h2>Adicionados Recentemente</h2>
 
 <!-- Verifica se existe algum filme cadastrado -->
 {% if filmes_recentes %}
 
 <ul>
 
-<!-- Percorre a lista de filmes recentes e exibe as informações listadas -->
+<!-- Percorre a lista de filmes recentes e exibe as informações listadas e os posters dos filmes -->
 {% for filme in filmes_recentes %}
 
     <li>
 
-        <strong>{{ filme.titulo }}</strong>
+        <img src="{{ filme.capa_url }}" alt="{{ filme.titulo }}">
 
-        <br>
+        <div>
 
-        {{ filme.descricao }}
+            <strong>{{ filme.titulo }}</strong>
+
+            <br>
+
+            {{ filme.descricao }}
+
+        </div>
 
     </li>
 
