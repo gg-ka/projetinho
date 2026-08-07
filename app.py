@@ -53,6 +53,10 @@ def calcular_estatisticas(dados): #função que calcula as médias das avaliaç�
 
     return dados["filmes"] #retorna a lista de filmes atualizada com as médias
 
+#função usada para pegar a média de cada filme na hora de ordenar
+def pegar_media(filme):
+    return filme["media"]
+
 @app.route("/") #endereço principal do site
 def dashboard():
     dados = carregar_dados() #le o json
@@ -66,8 +70,7 @@ def dashboard():
 
     ranking = sorted( #ordena o ranking
         ranking,
-        key=lambda 
-        filme: filme["media"],
+        key=pegar_media, #chama a função pegar_media para pegar a média de cada filme 
         reverse=True #ordem decrescente
     )
     
