@@ -24,10 +24,20 @@
                     <!-- 1) o "name" tem que ter o mesmo nome que no json (filme_id)-->
                     <!-- 2) o python já está enviando as informações dos filmes ao carregar a pagina -->
                     <select name="filme_id" class="filme_select" required>
-                        <option value="" disabled selected>Selecione um filme.</option>
+                        <option value="" disabled 
+                            {% if not filme_selecionado %}selected{% endif %}
+                            >
+                            Selecione um filme.</option>
+            <!-- if not é adicao da giovanna pra que o link entre o botao avaliar do catalogo guie o usuario ate a pagina de avaliacao com o filme ja pre selecionado -->
+                        
                         {% for filme in filmes %}
-                            <!-- Exibe o título do filme cadastrado no menu suspenso para o usuário. -->
-                            <option value="{{ filme.id }}">{{ filme.titulo }}</option>
+                        
+                            <!-- Exibe o título do filme cadastrado no menu suspenso para o usuário + caso usuario selecione pelo catalogo, o titulo vem ja certo. -->
+                            <option value="{{ filme.id }}"
+                                {% if filme.id == filme_selecionado %}selected{% endif %}
+                                >
+                                {{ filme.titulo }}</option>
+                        
                         {% endfor %}
                     </select>
     
